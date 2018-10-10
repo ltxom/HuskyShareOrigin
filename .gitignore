@@ -3,6 +3,14 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+# Eclipse IDE configurations
+.settings/*
+.classpath
+.project
+
+# Mac OS system file
+.DS_Store
+
 # Package Files #
 *.jar
 *.war
