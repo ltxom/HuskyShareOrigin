@@ -26,3 +26,7 @@ tomcat
 # Intellij configs
 .idea/workspace.xml
 .idea/encodings.xml
+
+# Built files
+target/
+out/

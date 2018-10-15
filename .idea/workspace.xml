@@ -197,9 +197,12 @@
     <findStrings>
       <find>ear</find>
       <find>hiberante</find>
+      <find>hibernate.cfg</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\LTXOM\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.9.0\jackson-annotations-2.9.0.jar</dir>
+      <dir>C:\Users\garyg\Work\HuskyShare\out\artifacts\HuskyShare_war_exploded2</dir>
+      <dir>C:\Users\garyg\Work\HuskyShare\out</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -322,7 +325,7 @@
     <property name="SearchEverywhereHistoryKey" value="hibernate.cfg&#9;FILE&#9;file://C:/Users/garyg/Work/HuskyShare/src/resources/hibernate.cfg.xml&#10;hibernate.cf&#9;FILE&#9;file://C:/Users/garyg/Work/HuskyShare/src/resources/hibernate.cfg.xml&#10;hibernate&#9;FILE&#9;file://C:/Users/garyg/Work/HuskyShare/src/resources/hibernate.cfg.xml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539573630076" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539573645152" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
