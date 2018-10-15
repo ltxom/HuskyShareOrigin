@@ -51,6 +51,7 @@ public class ServletDemo extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			//出错将回滚事务
+			assert session != null;
 			session.getTransaction().rollback();
 		} finally {
 			//关闭Session对象
