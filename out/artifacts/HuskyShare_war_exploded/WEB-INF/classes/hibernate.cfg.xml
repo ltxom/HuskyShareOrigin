@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 数据库方言 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- 数据库驱动 -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- 数据库连接信息 -->
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_huskyshare</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">HuskY.SharE.2018TO2022</property>
+
+		<!-- 不存在数据表则自动创建，存在则更新数据表 -->
+		<property name="hbn2ddl.auto">update</property>
+		<!-- 打印SQL语句 -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- 不格式化SQL语句 -->
+		<property name="hibernate.format_sql">false</property>
+		<!-- 映射文件 -->
+		<mapping resource="com/huskyshare/backend/model/user/User.hbm.xml"/>
+
+	</session-factory>
+</hibernate-configuration>

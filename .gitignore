@@ -22,3 +22,7 @@ hs_err_pid*
 
 # Tomcat files
 tomcat
+
+# Intellij configs
+.idea/workspace.xml
+.idea/encodings.xml
