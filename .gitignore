@@ -27,3 +27,6 @@ hs_err_pid*
 # Built files
 target
 out
+
+# Tomcat
+tomcat
