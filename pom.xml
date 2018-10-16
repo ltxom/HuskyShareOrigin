@@ -36,10 +36,13 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <port>9000</port>
-                    <path>/HuskyShare</path>
+                    <url>http://localhost:8080/manager/text</url>
+                    <path>/</path>
                     <update>true</update>
                     <uriEncoding>UTF-8</uriEncoding>
+                    <username>admin</username>
+                    <password>admin</password>
+                    <tomcatWebXml>./web/WEB-INF/web.xml</tomcatWebXml>
                 </configuration>
             </plugin>
         </plugins>
