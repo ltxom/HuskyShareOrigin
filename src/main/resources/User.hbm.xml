@@ -7,11 +7,11 @@
 		<id name="id">
 			<generator class="native"/>
 		</id>
-		<property name="username" not-null="true" length="50"/>
+		<property name="username" not-null="true" unique="true" length="50"/>
 		<property name="password" not-null="true" length="50"/>
 		<property name="firstName" not-null="true" length="50"/>
 		<property name="lastName" not-null="true" length="50"/>
-		<property name="email" not-null="true" length="50"/>
-		<property name="mobile" not-null="true" length="50"/>
+		<property name="email" not-null="true" unique="true" length="50"/>
+		<property name="mobile" length="16"/>
 	</class>
 </hibernate-mapping>

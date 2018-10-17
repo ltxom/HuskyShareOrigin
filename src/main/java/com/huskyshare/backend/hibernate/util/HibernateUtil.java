@@ -11,8 +11,7 @@ import org.hibernate.cfg.Configuration;
 public class HibernateUtil {
 	private static StandardServiceRegistry registry;
 	private static SessionFactory sessionFactory;
-
-	public static SessionFactory getSessionFactory() {
+	static{
 		Configuration configObj = new Configuration();
 		configObj.configure("hibernate.cfg.xml");
 
@@ -39,9 +38,16 @@ public class HibernateUtil {
 				}
 			}
 		}
+
+	}
+
+	public static SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
 
+	/**
+	 * 服务器关闭前运行plz
+	 * */
 	public static void shutdown() {
 		if (registry != null) {
 			StandardServiceRegistryBuilder.destroy(registry);

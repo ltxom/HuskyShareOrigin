@@ -2,7 +2,10 @@ package com.huskyshare.backend.servlet;
 
 import com.huskyshare.backend.hibernate.util.HibernateUtil;
 import com.huskyshare.backend.model.user.User;
+
 import org.hibernate.Session;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -29,35 +32,40 @@ public class ServletDemo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Session session = null;            //声明Session对象
-		try {
-			//获取Session
-			session = HibernateUtil.getSessionFactory().openSession();
-			//开启事务
-			session.beginTransaction();
-			//查询ID为1的用户
-			User user = (User) session.get(User.class, 1);
-			//输出药品信息
-			response.setCharacterEncoding("GBK");
-			PrintWriter out = response.getWriter();
-			out.println("ID：" + user.getId() + "<br>");
-			out.println("用户名：" + user.getUsername() + "<br>");
-			out.println("Email：" + user.getEmail() + "<br>");
-			out.println("姓名：" + user.getFirstName() +" "+user.getLastName()+ "<br>");
-			out.println("电话：" + user.getMobile() + "<br>");
 
-			out.flush();
-			out.close();
-			//提交事务
-			session.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-			//出错将回滚事务
-			assert session != null;
-			session.getTransaction().rollback();
-		} finally {
-			//关闭Session对象
-			HibernateUtil.shutdown();
-		}
+		//获取Session
+		session = HibernateUtil.getSessionFactory().openSession();
+		//开启事务
+		session.beginTransaction();
+		//查询ID为1的用户
+		User user = (User) session.get(User.class, 1);
+		//输出信息
+		response.setCharacterEncoding("GBK");
+		PrintWriter out = response.getWriter();
+		out.println("ID：" + user.getId());
+		out.println("用户名：" + user.getUsername());
+		out.println("Email：" + user.getEmail());
+		out.println("姓名：" + user.getFirstName() + " " + user.getLastName());
+		out.println("电话：" + user.getMobile());
+
+		// Spring IoC测试
+		ApplicationContext factory = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
+		User userFromSpring = (User) factory.getBean("userContructedBySpring");
+		out.println("用户名：" + userFromSpring.getUsername());
+		out.println("姓：" + userFromSpring.getLastName());
+		out.println("名：" + userFromSpring.getFirstName());
+
+
+		out.flush();
+		out.close();
+
+
+		//提交事务
+		session.getTransaction().commit();
+		session.close();
+		//关闭Session对象
+		//HibernateUtil.shutdown();
+
 	}
 
 }
