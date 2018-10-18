@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.huskyshare.backend.model.product">
+    <class name="Product" table="tb_product">
+        <id name="id">
+            <generator class="identity"/>
+        </id>
+        <property name="name" not-null="true" length="64"/>
+        <property name="description" not-null="true">
+            <column name="description" sql-type="text"></column>
+        </property>
+        <property name="createTime" not-null="true"/>
+        <property name="marketPrice"/>
+        <property name="sellPrice" not-null="true"/>
+        <property name="quantity" not-null="true"/>
+        <property name="inStock" not-null="true"/>
+        <property name="categoryID" not-null="true"/>
+        <property name="sellerID" not-null="true"/>
+
+    </class>
+</hibernate-mapping>

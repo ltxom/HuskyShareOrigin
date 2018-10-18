@@ -1,2 +1,0 @@
-2018-10-16 17:24:18,743-HHH000346: Error during managed flush [org.hibernate.PropertyValueException: not-null property references a null or transient value : com.huskyshare.backend.model.user.User.mobile]
-2018-10-16 17:25:28,600-HHH000346: Error during managed flush [org.hibernate.PropertyValueException: not-null property references a null or transient value : com.huskyshare.backend.model.user.User.mobile]
