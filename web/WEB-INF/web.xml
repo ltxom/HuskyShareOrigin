@@ -9,18 +9,22 @@
     <!--</servlet>-->
     <!--<servlet-mapping>-->
         <!--<servlet-name>ServletDemo</servlet-name>-->
-        <!--<url-pattern>/s</url-pattern>-->
+        <!--<url-pattern>/</url-pattern>-->
+    <!--</servlet-mapping>-->
+    <!--<servlet>-->
+        <!--<servlet-name>RegisterServlet</servlet-name>-->
+        <!--<servlet-class>com.huskyshare.backend.servlet.RegisterServlet</servlet-class>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>RegisterServlet</servlet-name>-->
+        <!--<url-pattern>/register</url-pattern>-->
     <!--</servlet-mapping>-->
     <servlet>
-        <servlet-name>springmvc</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring/springmvc.xml</param-value>
-        </init-param>
+        <servlet-name>Tester</servlet-name>
+        <jsp-file>/index.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>springmvc</servlet-name>
-        <url-pattern>*.action</url-pattern>
+        <servlet-name>Tester</servlet-name>
+        <url-pattern>/t</url-pattern>
     </servlet-mapping>
 </web-app>
