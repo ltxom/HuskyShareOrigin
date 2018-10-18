@@ -12,8 +12,6 @@
 .DS_Store
 
 # Package Files #
-lib
-*.jar
 *.war
 *.ear
 
