@@ -30,30 +30,32 @@ public class ServletDemo extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Session session = null;            //声明Session对象
-
-		//获取Session
-		session = HibernateUtil.getSessionFactory().openSession();
-		//开启事务
-		session.beginTransaction();
-		//查询ID为1的用户
-		User user = (User) session.get(User.class, 1);
-		//输出信息
-		response.setCharacterEncoding("GBK");
+//		Session session = null;            //声明Session对象
+//
+//		//获取Session
+//		session = HibernateUtil.getSessionFactory().openSession();
+//		//开启事务
+//		session.beginTransaction();
+//		//查询ID为1的用户
+//		User user = (User) session.get(User.class, 1);
+//		//输出信息
+//		response.setCharacterEncoding("GBK");
 		PrintWriter out = response.getWriter();
-		out.println("ID：" + user.getId());
-		out.println("用户名：" + user.getUsername());
-		out.println("Email：" + user.getEmail());
-		out.println("姓名：" + user.getFirstName() + " " + user.getLastName());
-		out.println("电话：" + user.getMobile());
-
-		// Spring IoC测试
-		ApplicationContext factory = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
-		User userFromSpring = (User) factory.getBean("userContructedBySpring");
-		out.println("用户名：" + userFromSpring.getUsername());
-		out.println("姓：" + userFromSpring.getLastName());
-		out.println("名：" + userFromSpring.getFirstName());
+		out.print("Servlet output");
+//		out.println("ID：" + user.getId());
+//		out.println("用户名：" + user.getUsername());
+//		out.println("Email：" + user.getEmail());
+//		out.println("姓名：" + user.getFirstName() + " " + user.getLastName());
+//		out.println("电话：" + user.getMobile());
+//
+//		// Spring IoC测试
+//		ApplicationContext factory = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
+//		User userFromSpring = (User) factory.getBean("userContructedBySpring");
+//		out.println("用户名：" + userFromSpring.getUsername());
+//		out.println("姓：" + userFromSpring.getLastName());
+//		out.println("名：" + userFromSpring.getFirstName());
 
 
 		out.flush();
@@ -61,8 +63,8 @@ public class ServletDemo extends HttpServlet {
 
 
 		//提交事务
-		session.getTransaction().commit();
-		session.close();
+//		session.getTransaction().commit();
+//		session.close();
 		//关闭Session对象
 		//HibernateUtil.shutdown();
 

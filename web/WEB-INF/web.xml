@@ -3,12 +3,28 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <!--<servlet>-->
+        <!--<servlet-name>ServletDemo</servlet-name>-->
+        <!--<servlet-class>com.huskyshare.backend.servlet.ServletDemo</servlet-class>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>ServletDemo</servlet-name>-->
+        <!--<url-pattern>/</url-pattern>-->
+    <!--</servlet-mapping>-->
+    <!--<servlet>-->
+        <!--<servlet-name>RegisterServlet</servlet-name>-->
+        <!--<servlet-class>com.huskyshare.backend.servlet.RegisterServlet</servlet-class>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>RegisterServlet</servlet-name>-->
+        <!--<url-pattern>/register</url-pattern>-->
+    <!--</servlet-mapping>-->
     <servlet>
-        <servlet-name>ServletDemo</servlet-name>
-        <servlet-class>com.huskyshare.backend.servlet.ServletDemo</servlet-class>
+        <servlet-name>Tester</servlet-name>
+        <jsp-file>/index.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ServletDemo</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>Tester</servlet-name>
+        <url-pattern>/t</url-pattern>
     </servlet-mapping>
 </web-app>
