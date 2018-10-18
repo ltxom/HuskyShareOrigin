@@ -16,7 +16,13 @@
     </properties>
     <packaging>war</packaging>
     <build>
+
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.0.5.RELEASE</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -44,8 +50,8 @@
                     <password>admin</password>
                     <tomcatWebXml>./web/WEB-INF/web.xml</tomcatWebXml>
                 </configuration>
-    </plugin>
-</plugins>
+            </plugin>
+        </plugins>
     </build>
     <dependencies>
         <dependency>
@@ -53,6 +59,11 @@
             <artifactId>tomcat-servlet-api</artifactId>
             <version>9.0.12</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>2.0.5.RELEASE</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>

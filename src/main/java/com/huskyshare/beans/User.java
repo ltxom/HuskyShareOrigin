@@ -1,4 +1,4 @@
-package main.java.com.huskyshare.dylan.javaben;
+package com.huskyshare.beans;
 
 public class User {
 	private int id;

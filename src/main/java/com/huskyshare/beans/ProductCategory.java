@@ -1,4 +1,4 @@
-package main.java.com.huskyshare.dylan.javaben;
+package com.huskyshare.beans;
 
 public class ProductCategory {
 	private int id;

@@ -8,7 +8,8 @@
 
 
     <!-- User Bean p 表达式注入-->
-    <bean name="userContructedBySpring" class="com.huskyshare.backend.model.user.User" p:username="ImAUserUsingP"></bean>
+    <bean name="userContructedBySpring" class="com.huskyshare.backend.model.user.User"
+          p:username="ImAUserUsingP"></bean>
 
     <!-- SpEL的属性注入 -->
     <bean id="userContructedBySpringSpEL" class="com.huskyshare.backend.model.user.User">
