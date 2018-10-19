@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/HuskyShare.iml" filepath="$PROJECT_DIR$/.idea/HuskyShare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HuskyShareNoMaven.iml" filepath="$PROJECT_DIR$/HuskyShareNoMaven.iml" />
     </modules>
   </component>
 </project>
