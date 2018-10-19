@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:include="fragments/base :: head">
     <title>HuskyShare</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -9,7 +9,8 @@
 </head>
 
 <body>
-<div id="header"></div>
+<!-- Navigation Bar -->
+<nav th:replace="fragments/base :: navbar">Navigation Bar</nav>
 
 <main class="container">
     <div id="carousel-images" class="carousel slide" data-ride="carousel">
