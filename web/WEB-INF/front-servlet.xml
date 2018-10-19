@@ -7,6 +7,7 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
+    <mvc:resources mapping="/assets/**" location="/assets/"/>
     <mvc:annotation-driven/>
     <!-- 包扫描器 -->
     <context:component-scan base-package="com.huskyshare.backend" />

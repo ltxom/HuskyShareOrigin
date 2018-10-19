@@ -9,7 +9,7 @@ public class LoginController {
 
 	@RequestMapping("login")
 	public ModelAndView login() {
-		System.out.println("Loging in");
+		System.out.println("Logging in");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("login");
 

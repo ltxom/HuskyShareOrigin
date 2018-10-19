@@ -16,7 +16,9 @@
     </facet>
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map />
+        <datasource-map>
+          <unit-entry name="sessionFactory" />
+        </datasource-map>
         <naming-strategy-map />
       </configuration>
     </facet>
@@ -24,21 +26,13 @@
       <configuration>
         <fileset id="fileset" name="Dispatcher Servlet" removed="false">
           <file>file://$MODULE_DIR$/web/WEB-INF/dispatcher-servlet.xml</file>
-          <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/src/resources/spring/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/src/resources/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/src/resources/spring/springmvc.xml</file>
         </fileset>
-      </configuration>
-    </facet>
-    <facet type="web" name="Web2">
-      <configuration>
-        <descriptors>
-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/tomcat/webapps/ROOT/WEB-INF/web.xml" />
-        </descriptors>
-        <webroots>
-          <root url="file://$MODULE_DIR$/tomcat/webapps/ROOT" relative="/" />
-        </webroots>
+        <fileset id="web springmvc servlet context" name="MVC springmvc servlet context" removed="true">
+          <file>file://$MODULE_DIR$/src/resources/spring/springmvc.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>
@@ -60,5 +54,6 @@
     <orderEntry type="library" name="mysql:mysql-connector-java:8.0.12" level="project" />
     <orderEntry type="library" name="annotations-api" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.12" level="application_server_libraries" />
+    <orderEntry type="library" name="javax.servlet:jstl:1.2" level="project" />
   </component>
 </module>

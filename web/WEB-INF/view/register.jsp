@@ -22,7 +22,7 @@
 <body class="bg-default">
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.html"><img src="img/Logos/icon.png" alt="logo" style="width:30px;"></a>
+    <a class="navbar-brand" href="../../assets/html/index.html"><img src="img/Logos/icon.png" alt="logo" style="width:30px;"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
         <!-- Links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.html">Homepage</a>
+                <a class="nav-link" href="../../assets/html/index.html">Homepage</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" data-toggle="dropdown">About</a>
