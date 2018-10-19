@@ -49,7 +49,7 @@ public class ServletDemo extends HttpServlet {
 		out.println("电话：" + user.getMobile());
 
 		// Spring IoC测试
-		ApplicationContext factory = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
+		ApplicationContext factory = new ClassPathXmlApplicationContext("WEB-INF/applicationContext.xml");
 		User userFromSpring = (User) factory.getBean("userContructedBySpring");
 		out.println("用户名：" + userFromSpring.getUsername());
 		out.println("姓：" + userFromSpring.getLastName());

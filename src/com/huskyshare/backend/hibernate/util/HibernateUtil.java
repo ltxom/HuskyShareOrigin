@@ -13,7 +13,7 @@ public class HibernateUtil {
 	private static SessionFactory sessionFactory;
 	static{
 		Configuration configObj = new Configuration();
-		configObj.configure("hibernate.cfg.xml");
+		configObj.configure("WEB-INF/hibernate.cfg.xml");
 
 		if (sessionFactory == null) {
 			try {

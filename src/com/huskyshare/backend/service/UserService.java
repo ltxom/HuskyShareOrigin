@@ -4,7 +4,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.huskyshare.backend.hibernate.dao.UserDao;
 import com.huskyshare.backend.model.user.User;
 
-@Transactional
 public class UserService {
 	private UserDao userDao;
 

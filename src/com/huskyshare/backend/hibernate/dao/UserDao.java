@@ -1,16 +1,28 @@
 package com.huskyshare.backend.hibernate.dao;
 
 import com.huskyshare.backend.model.user.User;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
-import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 
-public class UserDao extends HibernateDaoSupport{
+public class UserDao{
+
+	private HibernateTemplate hibernateTemplate;
+
+	public HibernateTemplate getHibernateTemplate() {
+		return hibernateTemplate;
+	}
+
+	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+		this.hibernateTemplate = hibernateTemplate;
+	}
+
 	public Integer find(User user){
-		List<User> users = (List<User>)this.getHibernateTemplate().find("from User u where u.username=?",user.getUsername());
+		hibernateTemplate.getSessionFactory().getCurrentSession().beginTransaction();
+		List<User> users = (List<User>)this.getHibernateTemplate().find("from User u where u.username=\'"+user.getUsername()+"\'");
 		if(users.size()==1)
 			return users.get(0).getId();
 		else if(users.size()==0)
@@ -22,5 +34,6 @@ public class UserDao extends HibernateDaoSupport{
 
 	public void save(User user){
 		this.getHibernateTemplate().save(user);
+		this.getHibernateTemplate().getSessionFactory().getCurrentSession().getTransaction().commit();
 	}
 }

@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
+import java.util.Scanner;
+
 // Spring单元测试
 @RunWith(BlockJUnit4ClassRunner.class)
 public class SpringUnitTest extends UnitTestBase {
@@ -28,10 +30,29 @@ public class SpringUnitTest extends UnitTestBase {
 
 	@Test
 	public void test3t() {
-		UnitTestBase unitTestBase = new UnitTestBase("classpath*:spring/applicationContext.xml");
-		UserService userService = unitTestBase.getBean("userService");
+		UserService userService = super.getBean("userService");
+
 		User user = new User();
-		user.setUsername("lko");
+		Scanner in = new Scanner("a\nb\nc\nd\ne@email.com\n111");
+		System.out.println("Please enter your user name:");
+		String userName = in.nextLine();
+		System.out.println("Please enter your password:");
+		String password = in.nextLine();
+		System.out.println("Please enter your last name:");
+		String lastName = in.nextLine();
+		System.out.println("Please enter your first name:");
+		String firstName = in.nextLine();
+		System.out.println("Please enter your email:");
+		String email = in.nextLine();
+		System.out.println("Please enter your mobile:");
+		String mobile = in.nextLine();
+
+		user.setUsername(userName);
+		user.setPassword(password);
+		user.setEmail(email);
+		user.setLastName(lastName);
+		user.setFirstName(firstName);
+		user.setMobile(mobile);
 
 		userService.register(user);
 	}

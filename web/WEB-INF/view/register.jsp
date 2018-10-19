@@ -75,7 +75,7 @@
 <div class="container-fluid">
     <main>
         <div class="form-container container bg-white mt-3">
-            <form action="/submitReg.action" method="POST" id="registerForm">
+            <form action="submitReg" modelAttribute="user" method="POST" id="registerForm">
                 <div class="row">
                     <div class="col-lg-5 mr-5">
                         <h3 class="mb-4">Sign up for HuskyShare</h3>
