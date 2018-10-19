@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.huskyshare.backend.model.file">
+	<class name="UploadFile" table="tb_uploadFile">
+		<id name="id">
+			<generator class="identity"/>
+		</id>
+		<property name="uploadDate" not-null="true"/>
+		<property name="fileSize" not-null="true"/>
+		<property name="filePath" not-null="true" length="2083"/>
+
+	</class>
+</hibernate-mapping>

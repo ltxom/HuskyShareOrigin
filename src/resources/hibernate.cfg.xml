@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- 数据库方言 -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <!-- 数据库驱动 -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <!-- 数据库连接信息 -->
+        <property name="hibernate.connection.url">jdbc:mysql://huskyshare.com:6033/db_huskyshare?useSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=utf-8</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">HuskY.SharE.2018TO2022</property>
+
+        <!-- 配置C3P0连接池 -->
+        <property name="connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+        <!--在连接池中可用的数据库连接的最少数目 -->
+        <property name="c3p0.min_size">5</property>
+        <!--在连接池中所有数据库连接的最大数目  -->
+        <property name="c3p0.max_size">20</property>
+        <!--设定数据库连接的过期时间,以秒为单位,
+        如果连接池中的某个数据库连接处于空闲状态的时间超过了timeout时间,就会从连接池中清除 -->
+        <property name="c3p0.timeout">120</property>
+        <!--每3000秒检查所有连接池中的空闲连接 以秒为单位-->
+        <property name="c3p0.idle_test_period">3000</property>
+
+        <property name="hibernate.connection.isolation">4</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- 不存在数据表则自动创建，存在则更新数据表 -->
+        <!--<property name="hibernate.hbm2ddl.auto">update</property>-->
+        <!-- 打印SQL语句 -->
+        <property name="hibernate.show_sql">true</property>
+        <!-- 格式化SQL语句 -->
+        <property name="hibernate.format_sql">true</property>
+        <!-- 映射文件 -->
+        <mapping resource="User.hbm.xml"/>
+        <mapping resource="DormAddress.hbm.xml"/>
+        <mapping resource="Order.hbm.xml"/>
+        <mapping resource="Product.hbm.xml"/>
+        <mapping resource="ProductCategory.hbm.xml"/>
+        <mapping resource="ProductImg.hbm.xml"/>
+        <mapping resource="UploadFile.hbm.xml"/>
+
+
+    </session-factory>
+</hibernate-configuration>

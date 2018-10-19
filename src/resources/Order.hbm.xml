@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.huskyshare.backend.model.order">
+	<class name="Order" table="tb_order">
+		<id name="id">
+			<generator class="identity"/>
+		</id>
+		<property name="addressId" not-null="true" length="10"/>
+		<property name="createTime" not-null="true"/>
+		<property name="orderState" not-null="true" length="20"/>
+		<property name="customerId" not-null="true"/>
+		<property name="sellerId" not-null="true"/>
+		<property name="productId" not-null="true"/>
+		<property name="customerHasConfirmed" not-null="true"/>
+		<property name="sellerHasConfirmed" not-null="true"/>
+
+
+	</class>
+</hibernate-mapping>
