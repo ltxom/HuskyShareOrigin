@@ -29,7 +29,7 @@
         <property name="hibernate.current_session_context_class">thread</property>
 
         <!-- 不存在数据表则自动创建，存在则更新数据表 -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!--<property name="hibernate.hbm2ddl.auto">update</property>-->
         <!-- 打印SQL语句 -->
         <property name="hibernate.show_sql">true</property>
         <!-- 格式化SQL语句 -->

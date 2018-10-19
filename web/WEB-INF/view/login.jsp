@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Login | HuskyShare</title>
-    <meta charset="utf-8">
+    <meta charset="GBK">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS and JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -70,33 +70,40 @@
 
 <div class="container-fluid">
     <main>
-        <div class="form-container container bg-white mt-3">
-            <h2 class="mb-4">Log in to HuskyShare</h2>
-            <!-- TODO fix login url -->
-            <form action="/login" method="post">
-                <div class="form-group">
-                    <input type="email" class="form-control fixed-width-input" id="emailInput" name="email"
-                           aria-describedby="emailHelp" placeholder="email">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control fixed-width-input d-inline-block" id="passwordInput"
-                           name="password" placeholder="Password">
-                    <a href="/forgot-password" class="ml-3">Forgot?</a>
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary">Log in</button>
-                <div class="form-check d-inline-block ml-3">
-                    <input type="checkbox" class="form-check-input" id="rememberMeInput" name="remember_me">
-                    <label class="form-check-label" for="rememberMeInput">Remember me</label>
-                </div>
-                <!-- TODO implement csrf token -->
-                <input type="hidden" name="csrf_token">
-            </form>
-        </div>
-        <div class="container sub-form-container">
-            New to HuskyShare? <a href="/signup">Sign up now -></a>
-        </div>
-    </main>
+            <%
+            if(request.getAttribute("msg")!=null&&request.getAttribute("msg").equals("REGISTER_SUCCESS")){
+		        out.println("<div class=\"form-container container bg-white mt-3\">\n" +
+                  "\t\t<div id=\"myAlert\" class=\"alert alert-success\">\n" +
+                "\t\t\t<strong>注册成功！</strong>向您的"+request.getAttribute("email")+"<strong></strong>发送了一封确认邮件，请在登陆前确认。\n" +
+                "\t\t</div>");
+        }
+		%>
+        <h2 class="mb-4">Log in to HuskyShare</h2>
+        <!-- TODO fix login url -->
+        <form action="/login" method="post">
+            <div class="form-group">
+                <input type="email" class="form-control fixed-width-input" id="emailInput" name="email"
+                       aria-describedby="emailHelp" placeholder="email">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control fixed-width-input d-inline-block" id="passwordInput"
+                       name="password" placeholder="Password">
+                <a href="/forgot-password" class="ml-3">Forgot?</a>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Log in</button>
+            <div class="form-check d-inline-block ml-3">
+                <input type="checkbox" class="form-check-input" id="rememberMeInput" name="remember_me">
+                <label class="form-check-label" for="rememberMeInput">Remember me</label>
+            </div>
+            <!-- TODO implement csrf token -->
+            <input type="hidden" name="csrf_token">
+        </form>
+</div>
+<div class="container sub-form-container">
+    New to HuskyShare? <a href="/signup">Sign up now -></a>
+</div>
+</main>
 </div>
 </body>
 </html>

@@ -37,7 +37,7 @@ public class UnitTestBase {
 	}
 	
 	@SuppressWarnings("unchecked")
-	protected <T extends Object> T getBean(String beanId) {
+	public <T extends Object> T getBean(String beanId) {
 		try {
 			return (T)context.getBean(beanId);
 		} catch (BeansException e) {
@@ -45,8 +45,8 @@ public class UnitTestBase {
 			return null;
 		}
 	}
-	
-	protected <T extends Object> T getBean(Class<T> clazz) {
+
+	public <T extends Object> T getBean(Class<T> clazz) {
 		try {
 			return context.getBean(clazz);
 		} catch (BeansException e) {

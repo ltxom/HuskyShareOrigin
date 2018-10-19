@@ -1,6 +1,7 @@
 package com.huskyshare.backend.spring.test;
 
 import com.huskyshare.backend.model.user.User;
+import com.huskyshare.backend.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
@@ -16,8 +17,6 @@ public class SpringUnitTest extends UnitTestBase {
 
 	@Test
 	public void testUser() {//Spring IoC
-		System.out.println(ClassLoader.getSystemResource("log4j.properties"));
-		System.out.println(ClassLoader.getSystemResource("log4j.xml"));
 		User user = super.getBean("userContructedBySpringSpEL");
 		System.out.println(user.getId() + ": " + user.getUsername());
 	}
@@ -25,5 +24,15 @@ public class SpringUnitTest extends UnitTestBase {
 	@Test
 	public void testUserApplicationContext() {
 		System.out.println(this.getClass().toString() + ": " + super.getBean("userContructedBySpring").hashCode());
+	}
+
+	@Test
+	public void test3t() {
+		UnitTestBase unitTestBase = new UnitTestBase("classpath*:spring/applicationContext.xml");
+		UserService userService = unitTestBase.getBean("userService");
+		User user = new User();
+		user.setUsername("lko");
+
+		userService.register(user);
 	}
 }

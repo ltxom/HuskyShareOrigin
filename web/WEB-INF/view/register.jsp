@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <title>Register | HuskyShare</title>
@@ -60,7 +60,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" data-toggle="dropdown">Profile</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="profile.html">View Profile</a>
+                    <a class="dropdown-item" href="user.jsp">View Profile</a>
                     <a class="dropdown-item" href="#">Edit Profile</a>
                     <a class="dropdown-item" href="#">Log out</a>
                 </div>
@@ -75,7 +75,7 @@
 <div class="container-fluid">
     <main>
         <div class="form-container container bg-white mt-3">
-            <form action="/register" method="post" id="registerForm">
+            <form action="/submitReg.action" method="POST" id="registerForm">
                 <div class="row">
                     <div class="col-lg-5 mr-5">
                         <h3 class="mb-4">Sign up for HuskyShare</h3>
@@ -98,11 +98,11 @@
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control fixed-width-input placeholder-strong"
-                                   id="firstNameInput" name="first_name" placeholder="First Name">
+                                   id="firstNameInput" name="firstName" placeholder="First Name">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control fixed-width-input placeholder-strong"
-                                   id="lastNameInput" name="last_name" placeholder="Last Name">
+                                   id="lastNameInput" name="lastName" placeholder="Last Name">
                         </div>
                     </div>
                     <div class="col-lg-6 error-div">

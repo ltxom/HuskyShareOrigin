@@ -1,20 +1,24 @@
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.huskyshare.backend.model.user.User" %>
 <html lang="en">
 <head>
-    <title>Login | HuskyShare</title>
+    <title>Profile</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS and JS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <!-- Page-specific CSS -->
-    <link rel="stylesheet" href="css/auth.css">
-    <!-- Common CSS -->
-    <link rel="stylesheet" href="css/common.css">
+    <style>
+        .ml-auto .dropdown-menu {
+            left: auto !important;
+            right: 0px;
+        }
+    </style>
 </head>
-<body class="bg-default">
+
+<body>
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand" href="index.html"><img src="/img/Logos/icon.png" alt="logo" style="width:30px;"></a>
@@ -30,14 +34,14 @@
                 <a class="nav-link" href="index.html">Homepage</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" data-toggle="dropdown">About</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">About</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Our Story</a>
                     <a class="dropdown-item" href="#">Contact Us</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="iNeedDropdown" data-toggle="dropdown">I Need</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">I Need</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Items</a>
                     <a class="dropdown-item" href="#">Tutors</a>
@@ -45,7 +49,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="iHaveDropdown" data-toggle="dropdown">I Have</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">I Have</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Extra Items</a>
                     <a class="dropdown-item" href="#">Knowledge</a>
@@ -55,7 +59,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Profile</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="profile.html">View Profile</a>
+                    <a class="dropdown-item" href="user.jsp">View Profile</a>
                     <a class="dropdown-item" href="#">Edit Profile</a>
                     <a class="dropdown-item" href="#">Log out</a>
                 </div>
@@ -68,41 +72,37 @@
     </div>
 </nav>
 
-<div class="container-fluid">
-    <main>
-	<% if(request.getAttribute("msg").equal("REGISTER_SUCCESS");
-		out.println("");
-        <div class="form-container container bg-white mt-3">
-		<div id="myAlert" class="alert alert-success">
-			<strong>注册成功！</strong>向您的邮箱<strong></strong>发送了一封确认邮件，请在登陆前确认。
-		</div>
-		%>
-            <h2 class="mb-4">Log in to HuskyShare</h2>
-            <!-- TODO fix login url -->
-            <form action="/login" method="post">
-                <div class="form-group">
-                    <input type="email" class="form-control fixed-width-input" id="emailInput" name="email"
-                           aria-describedby="emailHelp" placeholder="email">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control fixed-width-input d-inline-block" id="passwordInput"
-                           name="password" placeholder="Password">
-                    <a href="/forgot-password" class="ml-3">Forgot?</a>
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary">Log in</button>
-                <div class="form-check d-inline-block ml-3">
-                    <input type="checkbox" class="form-check-input" id="rememberMeInput" name="remember_me">
-                    <label class="form-check-label" for="rememberMeInput">Remember me</label>
-                </div>
-                <!-- TODO implement csrf token -->
-                <input type="hidden" name="csrf_token">
-            </form>
+<div class="container" style="width:400px">
+    <div class="row">
+        <div class=".col-lg-2"></div>
+        <div class=".col-lg-8">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">First Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${userList }" var="user">
+                    <tr>
+                        <td>${user.id }</td>
+                        <td>${user.username }</td>
+                        <td>${user.email }</td>
+                        <td>${user.lastName }</td>
+                        <td>${user.firstName }</td>
+                    </tr>
+
+                </c:forEach>
+                </tbody>
+            </table>
         </div>
-        <div class="container sub-form-container">
-            New to HuskyShare? <a href="/signup">Sign up now -></a>
-        </div>
-    </main>
+        <div class=".col-lg-2"></div>
+    </div>
 </div>
+
 </body>
 </html>
