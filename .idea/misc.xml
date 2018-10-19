@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/tomcat/conf/web.xml" />
+    <file type="web" url="file://$PROJECT_DIR$/tomcat/webapps/docs/appdev/sample/web/WEB-INF/web.xml" />
+    <file type="web" url="file://$PROJECT_DIR$/tomcat/webapps/docs/WEB-INF/web.xml" />
+    <file type="web" url="file://$PROJECT_DIR$/tomcat/webapps/examples/WEB-INF/web.xml" />
+    <file type="web" url="file://$PROJECT_DIR$/tomcat/webapps/host-manager/WEB-INF/web.xml" />
+    <file type="web" url="file://$PROJECT_DIR$/tomcat/webapps/manager/WEB-INF/web.xml" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

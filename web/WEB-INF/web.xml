@@ -11,6 +11,7 @@
         <!--<servlet-name>ServletDemo</servlet-name>-->
         <!--<url-pattern>/s</url-pattern>-->
     <!--</servlet-mapping>-->
+
     <servlet>
         <servlet-name>springmvc</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
