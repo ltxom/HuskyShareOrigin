@@ -2,6 +2,7 @@ package com.huskyshare.backend.service;
 
 import com.huskyshare.backend.dao.UserDao;
 import com.huskyshare.backend.entity.User;
+import com.huskyshare.backend.utils.TokenGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ public class UserService {
    public String register(User user) {
       if (userDao.findByEmail(user.getEmail()) == null) {
          if (userDao.findByUsername(user.getUsername()) == null) {
+            user.setConfirmed(false);
             userDao.save(user);
             return "SUCCESS";
          }
@@ -37,6 +39,10 @@ public class UserService {
          return "SUCCESS";
       }
       return "ERROR_INVALID";
+   }
+
+   public User findUserByEmail(String email){
+      return userDao.findByEmail(email);
    }
 }
 
