@@ -4,8 +4,11 @@
 
 Frontend: only edit files in `src/main/resources`.
 
+### Important notes
+Add an attribute id="pageTitle" to all `title` tags in order for base.html to replace it.
+
 ### Directory structure
-* `static` - static assets (css, js, image, etc.). They are mapped to `/static/` in the website url.
+* `css`, `js`, `img`, etc. - static resource files.
 * `templates` - html files. They will be parsed by Thymeleaf (explained below).
 * `templates/fragments` - html fragments. Not to be served standalone. Only to be included in other html files.
 

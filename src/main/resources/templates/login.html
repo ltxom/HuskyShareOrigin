@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments/base :: head">
+<head>
     <title id="pageTitle">Login | HuskyShare</title>
-    <!-- Common CSS -->
-    <link rel="stylesheet" href="/static/css/auth.css" />">
+    <th:block th:include="fragments/base :: head"/>
+    <link rel="stylesheet" href="/static/css/auth.css"/>
 </head>
 <body class="bg-default">
-<!-- Navigation Bar -->
+
 <nav th:replace="fragments/base :: navbar"></nav>
 
 <div class="container-fluid">
     <main>
+        <div class="alert alert-info" th:if="${msg != null}">
+            <div th:switch="${msg}">
+                <p th:case="'REGISTER_SUCCESS'">Registration succeed! A email has been sent to your email <strong
+                        th:text="${email}"></strong></p>
+            </div>
+        </div>
+        <div class="alert alert-danger" th:if="${loginMsg != null}">
+            <div th:switch="${loginMsg}">
+                <strong th:case="'DUPLICATE_USERNAME'">Registration failed! User name has been taken.</strong>
+                <strong th:case="'DUPLICATE_EMAIL'">Registration failed! Email has been taken.</strong>
+                <strong th:case="'ERROR_NO_USER'">No user found. Please register first!</strong>
+                <strong th:case="'ERROR_INCORRECT_PASS'">Incorrect password! Please verify your input.</strong>
+                <strong th:case="'ERROR_INVALID'">Please enter your email address and password.</strong>
+            </div>
+        </div>
         <div class="form-container container bg-white mt-3">
-            <div class="alert alert-info" th:if="${msg != null}">
-                <div th:switch="${msg}">
-                    <p th:case="'REGISTER_SUCCESS'">Registration succeed! A email has been sent to your email <strong th:text="${email}"></strong></p>
-                </div>
-            </div>
-            <div class="alert alert-danger" th:if="${loginMsg != null}">
-                <div th:switch="${loginMsg}">
-                    <strong th:case="'DUPLICATE_USERNAME'">Registration failed! User name has been taken.</strong>
-                    <strong th:case="'DUPLICATE_EMAIL'">Registration failed! Email has been taken.</strong>
-                    <strong th:case="'ERROR_NO_USER'">No user found. Please register first!</strong>
-                    <strong th:case="'ERROR_INCORRECT_PASS'">Incorrect password! Please verify your input.</strong>
-                    <strong th:case="'ERROR_INVALID'">Please enter your email address and password.</strong>
-                </div>
-            </div>
-
             <h2 class="mb-4">Log in to HuskyShare</h2>
             <!-- TODO fix login url -->
-            <form action="login" method="post">
+            <form action="/login" method="post">
                 <div class="form-group">
                     <input type="email" class="form-control fixed-width-input" id="emailInput" name="email"
                            aria-describedby="emailHelp" placeholder="email">
