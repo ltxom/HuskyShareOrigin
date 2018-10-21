@@ -46,8 +46,8 @@
                                 <div class="card-header">Details</div>
                                 <div class="card-body">
                                     <p class="card-text" th:text="${'Quantity: ' + demand.quantity}">Quantity</p>
-                                    <!--<a th:href="'/offer?id='+${demand.id}" class="btn btn-danger btn-md">Offer</a>-->
-                                    <button type ="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal2">Offer</button>
+                                    <a th:href="'/offer?id='+${demand.id}" class="btn btn-danger btn-md" data-toggle="modal" data-target="myModal2">Offer</a>
+                                    <!--<button type ="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal2">Offer</button>-->
                                     <div class="modal fade" id="myModal2" role="dialog">
                                         <div class="modal-dialog">
                                             <!-- Modal content-->
@@ -66,7 +66,6 @@
 
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
