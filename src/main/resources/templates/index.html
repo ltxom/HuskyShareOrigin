@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments/base :: head">
-    <title id="pageTitle">Home | HuskyShare</title>
-    <link rel="stylesheet" herf="/static/css/common.css" ;>
-    <script src="../static/js/animate.js"></script>
-
+<head>
+    <th:block th:include="fragments/base :: head"/>
+    <title id="pageTitle">Home</title>
+    <!-- Particles JS -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="/static/js/animate.js"></script>
+    <link rel="stylesheet" href="/static/css/particles.css">
 </head>
 <style>
     .ml-auto .dropdown-menu {
@@ -16,7 +18,6 @@
 <body>
 <!-- Navigation Bar -->
 <nav th:replace="fragments/base :: navbar">Navigation Bar</nav>
-
 
 <main class="container-fluid">
     <!-- Header - set the background image for the header in the line below -->
@@ -37,10 +38,9 @@
     <!-- particles.js container -->
     <div id="particles-js"></div>
     <!-- stats - count particles -->
-    <div class="count-particles">
-        <span class="js-count-particles">--</span> particles
-    </div>
-
+    <!--<div class="count-particles">-->
+        <!--<span class="js-count-particles">&#45;&#45;</span> particles-->
+    <!--</div>-->
 
     <!-- Content section -->
     <section class="py-5">

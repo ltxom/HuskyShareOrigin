@@ -60,6 +60,7 @@ public class UserController {
    public ModelAndView registerPost(@ModelAttribute("user") User user, Model model,
                                     HttpServletRequest request) {
 
+      // TODO server-side validate user input
       ModelAndView modelAndView = new ModelAndView("login");
       if (handleLoginState(request, model) != null) {
          modelAndView.setViewName("redirect:/");
