@@ -28,7 +28,7 @@
                         <p class="card-text"style="padding-left:1rem" th:text="'Quantity: '+${product.quantity}">Quantity</p>
                         <p class="card-text"style="padding-left:1rem" th:text="'Price: '+${product.sellPrice}">Price</p>
                         <hr class="style1">
-                        <p class="card-text" th:text="'Info: '+${product.description}">Description:</p>
+                        <p class="card-text" th:text="'Description: '+${product.description}">Description:</p>
                         <p class="card-text" th:text="'Seller: '+${product.seller.firstName}" style="padding-left:1rem">panda</p>
                         <!--<div class="d-flex justify-content-between align-items-center">-->
                             <!--&lt;!&ndash;<div class="btn-group">&ndash;&gt;-->
@@ -42,14 +42,11 @@
             <section id="info" class="body-login h-100 d-flex flex-column m-0">
                 <div class="card card-login mx-auto my-auto">
                     <div class="card-header">
-                        Info
+                        Seller
                     <div class="card-body p-4">
                         <img class="card-top" data-src="../static/img/ohuo.jpg" alt="user image">
                         <hr class="style1">
-                        <p class="card-text">Name: </p>
-                        <p class="card-text">Year: </p>
-                        <p class="card-text">Residence: </p>
-                        <p class="card-text">Contact: </p>
+                        <p class="card-text" th:text="'Name: '+${product.seller.firstName}">Name: </p>
                     </div>
                 </div>
                 </div>

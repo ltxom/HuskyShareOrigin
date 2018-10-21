@@ -31,35 +31,20 @@
                 <a class="nav-link" href="/">Homepage</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" data-toggle="dropdown">About</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Our Story</a>
-                    <a class="dropdown-item" href="#">Contact Us</a>
-                </div>
+                <a class="nav-link" href="/items">Items</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="iNeedDropdown" data-toggle="dropdown">I Need</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/items">Items</a>
-                    <a class="dropdown-item" href="#">Tutors</a>
-                    <a class="dropdown-item" href="#">Chicken Nuggets</a>
-                </div>
+                <a class="nav-link" href="/">I Need</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="iHaveDropdown" data-toggle="dropdown">I Have</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Extra Items</a>
-                    <a class="dropdown-item" href="#">Knowledge</a>
-                    <a class="dropdown-item" href="#">Extra Chicken Nuggets</a>
-                </div>
+                <a class="nav-link" href="/lend">I Have</a>
             </li>
 
             <li class="nav-item dropdown" th:if="${username != null}">
                 <a class="nav-link dropdown-toggle" th:text="${username}" href="#" id="profileDropdown"
                    data-toggle="dropdown">Profile</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/profile">View Profile</a>
-                    <a class="dropdown-item" href="#">Edit Profile</a>
+                    <a class="dropdown-item" href="/profile">My Home Page</a>
                     <a class="dropdown-item" href="/logout">Log out</a>
                 </div>
             </li>

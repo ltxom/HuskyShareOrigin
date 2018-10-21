@@ -1,8 +1,10 @@
 package com.huskyshare.backend.web;
 
+import com.huskyshare.backend.entity.Product;
 import com.huskyshare.backend.entity.User;
 import com.huskyshare.backend.dao.UserDao;
 import com.huskyshare.backend.service.LoginTokenService;
+import com.huskyshare.backend.service.ProductService;
 import com.huskyshare.backend.service.UserService;
 import com.huskyshare.backend.utils.TokenGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.websocket.Session;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -28,6 +31,9 @@ public class UserController {
 
    @Autowired
    private TokenGenerator tokenGenerator;
+
+   @Autowired
+   private ProductService productService;
 
    /**
     * 访问网站的根目录
@@ -141,6 +147,26 @@ public class UserController {
       return modelAndView;
    }
 
+   @RequestMapping(value = "/profile", method = RequestMethod.GET)
+   public ModelAndView profileForm(HttpServletRequest request, Model model) {
+      ModelAndView modelAndView = new ModelAndView("redirect:/login");
+      handleLoginState(request, model);
+      User user = handleLoginState(request, model);
+      if (user != null) {
+         List<Product> productList = productService.getAllProduct();
+         List<Product> userProductList = new ArrayList<>();
+         for(Product product:productList){
+            if(product.getSeller().equals(user))
+               userProductList.add(product);
+         }
+         modelAndView.addObject("productList", userProductList);
+         modelAndView.addObject("user", user);
+         modelAndView.setViewName("profile");
+         return modelAndView;
+      }
+
+      return modelAndView;
+   }
 
    // 判断用户是否拥有login token，并返回登陆的用户对象，若无则返回null
    // 同时若用户拥有login token则会将用户名username返回至前端
