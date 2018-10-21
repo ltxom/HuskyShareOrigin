@@ -2,19 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <head>
-    <meta charset="UTF-8">
-    <title>Items</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../static/css/common.css" th:href="@{../static/css/common.css}"/>
+    <th:block th:include="fragments/base :: head"/>
+    <title id="pageTitle">Items</title>
 </head>
 <body>
 <nav th:replace="fragments/base :: navbar">Navigation Bar</nav>
 
 <main class="container">
     <!-- Selection Panel -->
-    <p/>
-
     <ul class="nav nav-pills">
         <th:block th:each="category : ${categorys}">
             <li class="nav-item">
@@ -51,7 +46,7 @@
                                         <a href="#" class="btn btn-info btn-md">Details</a>
                                         <a href="#" class="btn btn-danger btn-md">Reserve</a>
                                     </div>
-                                    <div class="card-footer"><a href="#">Vender Info</a></div>
+                                    <div class="card-footer"><a href="#">Vendor Info</a></div>
                                 </div>
                             </div>
                         </div>
