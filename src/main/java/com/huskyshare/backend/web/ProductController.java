@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ProductController {
@@ -105,12 +106,38 @@ public class ProductController {
       }
       product.setSeller(user);
       product.setCreateTime(new Timestamp(System.currentTimeMillis()));
-      String fileName = user.getUsername() + System.currentTimeMillis()+"."+file.getContentType().split("/")[1];
+      String fileName =
+              user.getUsername() + System.currentTimeMillis() + "." + file.getContentType().split("/")[1];
       productService.saveItemImg(file, fileName);
 
       product.setImgPath(fileName);
       productService.saveProduct(product);
       return this.itemsForm("1", model);
+   }
+
+   @RequestMapping(value = "/reserve")
+   private ModelAndView reserveForm(@RequestParam(value = "id", required = false) String productId
+           , Model model) {
+      ModelAndView modelAndView = new ModelAndView("items");
+      try {
+         List<Product> productList =
+                 productService.getAllProduct();
+         Product targetProduct = null;
+         for(Product product:productList){
+            if(product.getId().equals(Integer.parseInt(productId))){
+               targetProduct = product;
+               break;
+            }
+         }
+         if (targetProduct!=null) {
+            model.addAttribute("product", targetProduct);
+            modelAndView.setViewName("reserve");
+            return modelAndView;
+         }
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+      return modelAndView;
    }
 
    private User handleLoginState(HttpServletRequest request, Model model) {

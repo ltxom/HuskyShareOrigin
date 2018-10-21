@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
     <meta charset="UTF-8">
     <title>Items</title>
@@ -48,7 +48,7 @@
                                     <div class="card-body">
                                         <p class="card-text" th:text="${'Price: ' + product.sellPrice}">Price</p>
                                         <p class="card-text" th:text="${'Quantity: ' + product.quantity}">Quantity</p>
-                                        <a href="#" class="btn btn-danger btn-md">Reserve</a>
+                                        <a th:href="'/reserve?id='+${product.id}" class="btn btn-danger btn-md">Reserve</a>
                                     </div>
                                     <div class="card-footer"><a href="#">Vender Info</a></div>
                                 </div>
