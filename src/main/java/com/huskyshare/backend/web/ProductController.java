@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -92,7 +93,8 @@ public class ProductController {
 
 
    @RequestMapping(value = "/lend", method = RequestMethod.POST)
-   public ModelAndView lendPost(@ModelAttribute("product") Product product,
+   public ModelAndView lendPost(@RequestParam("file") MultipartFile file, @ModelAttribute(
+           "product") Product product,
                                 HttpServletRequest request, Model model) {
       User user = handleLoginState(request, model);
 
@@ -103,9 +105,12 @@ public class ProductController {
       }
       product.setSeller(user);
       product.setCreateTime(new Timestamp(System.currentTimeMillis()));
-      product.setImgPath("weita.jpg");
+      String fileName = user.getUsername() + System.currentTimeMillis()+"."+file.getContentType().split("/")[1];
+      productService.saveItemImg(file, fileName);
+
+      product.setImgPath(fileName);
       productService.saveProduct(product);
-      return this.itemsForm("1",model);
+      return this.itemsForm("1", model);
    }
 
    private User handleLoginState(HttpServletRequest request, Model model) {
