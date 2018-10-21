@@ -10,84 +10,112 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <nav th:replace="fragments/base :: navbar">Navigation Bar</nav>
-    <div class="container">
-        <h1 class = "page-header" style="margin-left: 1rem; margin-right: 1rem;">Reserve</h1>
-        <div class="row" style="padding: 1rem">
-            <div class="col-sm-12 col-lg-8">
-                <div class="card mb-4 box-shadow">
-                    <div class="card-header">
-                        Name
-                    </div>
-                    <img class="card-left" style="padding: 5px" th:src="${'../static/img/items/'+product.imgPath}" alt="item image">
-                    <div class="card-body">
-                        <p class="card-text" style="padding-left:1rem" th:text="'Name: '+${product.productName}">Name </p>
-                        <p class="card-text" style="padding-left:1rem" th:text="'Date: '+${product.createTime}">Date </p>
-                        <hr class="style1">
-                        <p class="card-text">Item info:</p>
-                        <p class="card-text"style="padding-left:1rem" th:text="'Quantity: '+${product.quantity}">Quantity</p>
-                        <p class="card-text"style="padding-left:1rem" th:text="'Price: '+${product.sellPrice}">Rent</p>
-                        <hr class="style1">
-                        <p class="card-text" th:text="'Description: '+${product.description}">Description:</p>
-                        <p class="card-text" th:text="'Seller: '+${product.seller.firstName}" style="padding-left:1rem">panda</p>
-                        <!--<div class="d-flex justify-content-between align-items-center">-->
-                            <!--&lt;!&ndash;<div class="btn-group">&ndash;&gt;-->
-                                <!--&lt;!&ndash;&lt;!&ndash;<button type="button" class="btn btn-sm btn-outline-secondary">View</button>&ndash;&gt;&ndash;&gt;-->
-                                <!--&lt;!&ndash;&lt;!&ndash;<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>&ndash;&gt;&ndash;&gt;-->
-                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                        <!--</div>-->
-                    </div>
+<nav th:replace="fragments/base :: navbar">Navigation Bar</nav>
+<div class="container">
+    <h1 class="page-header" style="margin-left: 1rem; margin-right: 1rem;">Reserve</h1>
+    <div class="row" style="padding: 1rem">
+        <div class="col-sm-12 col-lg-8">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    Name
+                </div>
+                <img class="card-left" style="padding: 5px" th:src="${'../static/img/items/'+product.imgPath}"
+                     alt="item image">
+                <div class="card-body">
+                    <p class="card-text" style="padding-left:1rem" th:text="'Name: '+${product.productName}">Name </p>
+                    <p class="card-text" style="padding-left:1rem" th:text="'Date: '+${product.createTime}">Date </p>
+                    <hr class="style1">
+                    <p class="card-text">Item info:</p>
+                    <p class="card-text" style="padding-left:1rem" th:text="'Quantity: '+${product.quantity}">
+                        Quantity</p>
+                    <p class="card-text" style="padding-left:1rem" th:text="'Price: '+${product.sellPrice}">Price</p>
+                    <hr class="style1">
+                    <p class="card-text" th:text="'Description: '+${product.description}">Description:</p>
+                    <p class="card-text" th:text="'Seller: '+${product.seller.firstName}" style="padding-left:1rem">
+                        panda</p>
+                    <!--<div class="d-flex justify-content-between align-items-center">-->
+                    <!--&lt;!&ndash;<div class="btn-group">&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;<button type="button" class="btn btn-sm btn-outline-secondary">View</button>&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--</div>-->
                 </div>
             </div>
-            <section id="info" class="body-login h-100 d-flex flex-column m-0">
-                <div class="card card-login mx-auto my-auto">
-                    <div class="card-header">
-                        Seller
+        </div>
+        <section id="info" class="body-login h-100 d-flex flex-column m-0">
+            <div class="card card-login mx-auto my-auto">
+                <div class="card-header">
+                    Seller
                     <div class="card-body p-4">
                         <img class="card-top" data-src="../static/img/ohuo.jpg" alt="user image">
                         <hr class="style1">
                         <p class="card-text" th:text="'Name: '+${product.seller.firstName}">Name: </p>
                     </div>
                 </div>
-                </div>
-            </section>
             </div>
-            <div class = "row" style="padding-left:1rem;">
-                <div class="col-sm-12 col-lg-8 " >
-                    <div class="card mb-4 box-shadow">
-                        <div class="card-body">
-                            <p class="card-text" style="padding-left:1rem">Pickup Time: </p>
-                            <hr class="style1">
-                            <p class="card-text" style="padding-left:1rem">Pickup Location: </p>
-                            <hr class="style1">
-                            <p class="card-text" style="padding-left:1rem">Return Time: </p>
-                            <hr class="style1">
-                            <button type ="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Reserve</button>
-                            <div class="modal fade" id="myModal" role="dialog">
-                                <div class="modal-dialog">
-                                    <!-- Modal content-->
-                                    <div class="modal-content">
-                                        <div class="modal-header bg-dark">
-                                            <h4 class="modal-title text-light">HuskyShare.com</h4>
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Your reservation has been comfirmed. Please expect an email from seller in a short time.</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+        </section>
+    </div>
+    <div class="row" style="padding-left:1rem;">
+        <div class="col-sm-12 col-lg-8 ">
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <p class="card-text" style="padding-left:1rem">Pickup Time: </p>
+                    <hr class="style1">
+                    <p class="card-text" style="padding-left:1rem">Pickup Location: </p>
+                    <hr class="style1">
+                    <p class="card-text" style="padding-left:1rem">Return Time: </p>
+                    <hr class="style1">
+                    <button type="button" class="btn btn-danger btn-lg">Reserve</button>
                 </div>
             </div>
         </div>
     </div>
-
+</div>
+</div>
+<footer class="footer bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item">
+                        <a href="#">About</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="#">Contact</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="#">Terms of Use</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">&copy; HuskyShare 2018. All Rights Reserved.</p>
+            </div>
+            <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-3">
+                        <a href="#">
+                            <i class="fab fa-facebook fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item mr-3">
+                        <a href="#">
+                            <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fab fa-instagram fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
