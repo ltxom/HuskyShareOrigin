@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/base :: head">
+    <title id="pageTitle">Sell Item | HuskyShare</title>
+</head>
+<style>
+    .ml-auto .dropdown-menu {
+        left: auto !important;
+        right: 0;
+    }
+</style>
+
+<body>
+<!-- Navigation Bar -->
+<nav th:replace="fragments/base :: navbar">Navigation Bar</nav>
+
+<main class="container">
+   <div class="form-container container bg-white mt-3">
+            <h2 class="mb-4">Log in to HuskyShare</h2>
+            <!-- TODO fix login url -->
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <input type="email" class="form-control fixed-width-input" id="emailInput" name="email"
+                           aria-describedby="emailHelp" placeholder="email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control fixed-width-input d-inline-block" id="passwordInput"
+                           name="password" placeholder="Password">
+                    <a href="/forgot-password" class="ml-3">Forgot?</a>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Log in</button>
+                <div class="form-check d-inline-block ml-3">
+                    <input type="checkbox" class="form-check-input" id="rememberMeInput" name="remember_me">
+                    <label class="form-check-label" for="rememberMeInput">Remember me</label>
+                </div>
+                <!-- TODO implement csrf token -->
+                <input type="hidden" name="csrf_token">
+            </form>
+        </div>
+</main>
+</body>
+</html>

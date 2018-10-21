@@ -35,9 +35,21 @@ public class Product {
    @Column(name = "product_quantity")
    private Integer quantity;
 
-   @JoinColumn(name = "category_id")
-   @ManyToOne
-   private Category category;
+   @Column(name = "category_name")
+   private String category;
+
+   @Column(name="img_path")
+   private String imgPath;
+
+
+   public String getImgPath() {
+      return imgPath;
+   }
+
+   public void setImgPath(String imgPath) {
+      this.imgPath = imgPath;
+   }
+
 
    public String getDescription() {
       return description;
@@ -79,11 +91,11 @@ public class Product {
       this.quantity = quantity;
    }
 
-   public Category getCategory() {
+   public String getCategory() {
       return category;
    }
 
-   public void setCategory(Category category) {
+   public void setCategory(String category) {
       this.category = category;
    }
 

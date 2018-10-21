@@ -110,9 +110,12 @@ public class UserController {
       String msg = userService.login(user);
       if (msg.equals("SUCCESS")) {
          user = userService.findUserByEmail(user.getEmail());
-         String generatedToken = tokenGenerator.generateToken();
-         loginTokenService.saveToken(generatedToken, user);
-         request.getSession().setAttribute("token", generatedToken);
+         String userToken = loginTokenService.searchUser(user);
+         if (userToken == null) {
+            userToken = tokenGenerator.generateToken();
+            loginTokenService.saveToken(userToken, user);
+         }
+         request.getSession().setAttribute("token", userToken);
 
          modelAndView.setViewName("redirect:/");
          return modelAndView;
@@ -137,6 +140,7 @@ public class UserController {
       return modelAndView;
    }
 
+
    // 判断用户是否拥有login token，并返回登陆的用户对象，若无则返回null
    // 同时若用户拥有login token则会将用户名username返回至前端
    private User handleLoginState(HttpServletRequest request, Model model) {
@@ -146,4 +150,5 @@ public class UserController {
       }
       return user;
    }
+
 }
