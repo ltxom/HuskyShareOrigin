@@ -13,33 +13,10 @@
 <nav th:replace="fragments/base :: navbar"></nav>
 
 <div class="container">
-    <!--<div class="row" style="padding: 1rem">-->
-    <!--<div class="col-sm-12 col-lg-12">-->
-    <!--<div class="card mb-4 box-shadow">-->
-    <!--<div class="card-header">-->
-    <!--User Profile-->
-    <!--<a class="btn btn btn-info float-right" href="#" role="button">   Edit-->
-    <!--</a>-->
-    <!--</div>-->
-    <!--<div class="card float-right" style="width: 400px; height: 400px; padding-left:1rem" >-->
-    <!--<img class="card-img-top float-center" src="static/img/ohuo.img" alt="User image" style="width: 400px; height: 400px; ">-->
-    <!--</div>-->
-    <!--<div class="card-body">-->
-    <!--<p class="card-text" style="padding-left:1rem" >Name: </p>-->
-    <!--&lt;!&ndash;<button type="button" class="btn btn-info">&ndash;&gt;-->
-    <!--&lt;!&ndash;Edit&ndash;&gt;-->
-    <!--&lt;!&ndash;</button>&ndash;&gt;-->
-    <!--<p class="card-text" style="padding-left:1rem">Year: </p>-->
-    <!--<p class="card-text" style="padding-left:1rem">Residence Hall: </p>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <div class="row" style="padding-top: 5rem; ">
+    <div class="row" style="padding-top: 3rem;">
         <div class="col-sm-4 col-lg-4">
-            <div class="card" style="height: 300px; padding-left:1rem; padding-right:1rem">
-                <img class="card-img-top" height="280" src="../static/img/ohuo.jpg" alt="User image"
-                     style="padding-top: 1rem; object-fit: fill">
+            <div class="card" style="width:300px; height:300px; padding-left:1rem; padding-right:1rem">
+                <img class="card-img-top" src="../static/img/avatars/joey-avatar.png" alt="User image" style="width: 280px; height: 280px;">
             </div>
         </div>
 
@@ -50,17 +27,15 @@
                     <p class="card-text" style="padding-left:0.5rem" th:text="${'Email: '+user.email}">Email </p>
                     <p class="card-text" style="padding-left:0.5rem"
                        th:text="${'Name: '+user.firstName+' '+user.lastName}">Name</p>
-                    <a class="btn btn btn-info float-right" href="#" role="button"> Edit
-                    </a>
+                    <a class="btn btn btn-info float-left" href="#" role="button">Edit</a>
                 </div>
             </div>
         </div>
     </div>
 
-
     <hr class="style1">
     <div class="container-fluid">
-        I Have
+        <h4>I Have ...</h4>
         <div class="row justify-content-start">
             <th:block th:each="product : ${productList}">
                 <div class="col col-lg-4 col-sm-1">
@@ -81,10 +56,9 @@
                                 <div class="card" style="width:15rem;">
                                     <div class="card-header">Details</div>
                                     <div class="card-body">
-                                        <p class="card-text" th:text="${'Price: ' + product.sellPrice}">Price</p>
+                                        <p class="card-text" th:text="${'Rent: $' + product.sellPrice + '/hour'}">Price</p>
                                         <p class="card-text" th:text="${'Quantity: ' + product.quantity}">Quantity</p>
                                         <a th:href="'/edit?id='+${product.id}" class="btn btn-warning btn-md">Edit</a>
-                                        <a th:href="'/remove?id='+${product.id}" class="btn btn-danger btn-md">Remove</a>
                                         <a th:href="'/remove?id='+${product.id}"
                                            class="btn btn-danger btn-md">Remove</a>
                                     </div>
@@ -98,7 +72,7 @@
     </div>
     <hr class="style1">
     <div class="container-fluid">
-        I Need
+        <h4>I Need ...</h4>
         <div class="row justify-content-start">
             <th:block th:each="demand : ${demandList}">
                 <div class="col col-lg-4 col-sm-1">
@@ -132,8 +106,6 @@
         </div>
     </div>
 
-=======
->>>>>>> 8200a19737a963181ee42cfade5fb958805a5838
 </div>
 <footer class="footer bg-light">
     <div class="container">

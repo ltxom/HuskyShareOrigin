@@ -8,56 +8,104 @@
 <body>
 <nav th:replace="fragments/base :: navbar">Navigation Bar</nav>
 
-<main class="container">
-    <!-- Selection Panel -->
-    <ul class="nav nav-pills">
-        <th:block th:each="category : ${categorys}">
-            <li class="nav-item">
-                <a th:class="'nav-link ' +${((category.id+'')==categoryID?'active':'')}"
-                   th:href="@{'/offers?categoryID=' + ${category.id}}" th:text="${category.category}">All</a>
-            </li>
-        </th:block>
-    </ul>
+<style>
+    .container {
+        margin: 1rem;
+    }
+</style>
 
+<div class="container">
+    <!-- Selection Panel -->
+    <div class="btn-group btn-group-justified -align-justify" role="group" aria-label="...">
+        <th:block th:each="category : ${categorys}">
+            <a th:class="'btn btn-secondary ' +${((category.id+'')==categoryID?'active':'')}"
+               th:href="@{'/offers?categoryID=' + ${category.id}}" th:role="button"
+               th:text="${category.category}">All</a>
+        </th:block>
+    </div>
+    </p>
     <!-- Item Panel -->
-    <div class="container-fluid">
-        <div class="row justify-content-start">
-            <th:block th:each="demand : ${demandList}">
-                <div class="col col-lg-4 col-sm-1">
-                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                        <div class="mainflip">
-                            <div class="frontside">
-                                <div class="card" style="width:15rem;">
-                                    <img class="card-img-top img- fluid" height="200"
-                                         th:src="${'../static/img/demandItems/'+demand.imgPath}"
-                                         alt="card image">
-                                    <div class="card-body">
-                                        <h4 class="card-title" th:text="${demand.demandName}">Name</h4>
-                                        <p class="card-text" th:text="${demand.description}">Description</p>
-                                    </div>
+    <div class="row">
+        <th:block th:each="demand : ${demandList}">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card" style="width:15rem;">
+                                <img class="card-img-top img- fluid" height="200"
+                                     th:src="${'../static/img/demandItems/'+demand.imgPath}"
+                                     alt="card image">
+                                <div class="card-body">
+                                    <h4 class="card-title" th:text="${demand.demandName}">Name</h4>
+                                    <p class="card-text" th:text="${demand.description}">Description</p>
                                 </div>
                             </div>
-                            <div class="backside">
-                                <div class="card" style="width:15rem;">
-                                    <div class="card-header">Details</div>
-                                    <div class="card-body">
-                                        <p class="card-text" th:text="${'Quantity: ' + demand.quantity}">Quantity</p>
-                                        <a th:href="'/offer?id='+${demand.id}" class="btn btn-danger btn-md">Offer</a>
-                                    </div>
-                                    <div class="card-footer"><a href="#">Vendor Info</a></div>
+                        </div>
+                        <div class="backside">
+                            <div class="card" style="width:15rem;">
+                                <div class="card-header">Details</div>
+                                <div class="card-body">
+                                    <p class="card-text" th:text="${'Quantity: ' + demand.quantity}">Quantity</p>
+                                    <a th:href="'/offer?id='+${demand.id}" class="btn btn-danger btn-md">Offer</a>
                                 </div>
+                                <div class="card-footer"><a href="#">Vendor Info</a></div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </th:block>
-        </div>
+            </div>
+        </th:block>
     </div>
-</main>
+</div>
 
 <script crossorigin src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script crossorigin src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
+<footer class="footer bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item">
+                        <a href="#">About</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="#">Contact</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="#">Terms of Use</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">&copy; HuskyShare 2018. All Rights Reserved.</p>
+            </div>
+            <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-3">
+                        <a href="#">
+                            <i class="fab fa-facebook fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item mr-3">
+                        <a href="#">
+                            <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fab fa-instagram fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
