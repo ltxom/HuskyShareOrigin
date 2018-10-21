@@ -13,30 +13,35 @@
 
 <main class="container-fluid">
     <div class="form-container container bg-white mt-3">
-        <form action="/lend" method="post" id="lend-form">
+        <form action="lend" modelAttribute="product" method="post" id="lend-form">
             <div class="row">
                 <div class="col-lg-5 mr-5">
                     <h3 class="mb-4">Offer an Item for Lending</h3>
                     <div class="form-group">
                         <label for="nameInput">Item Name</label>
                         <input type="text" class="form-control fixed-width-input"
-                               id="nameInput" name="name" placeholder="E.g. Cooking pan, camera, printer...">
+                               id="nameInput" name="productName" placeholder="E.g. Cooking pan, camera, printer...">
                     </div>
                     <div class="form-group">
                         <label for="categoryInput">Item Category</label>
                         <select class="form-control fixed-width-input" id="categoryInput" name="category">
                             <option selected="selected" value="-1">-- Select a Category --</option>
-                            <option th:each="cat : ${categories}" th:value="${cat.getId()}">[[${cat.getCategory()}]]</option>
+                            <option th:each="cat : ${categories}" th:value="${cat.id}">[[${cat.category}]]</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="priceInput">Initial Price offer</label>
                         <input type="number" class="form-control fixed-width-input"
-                               id="priceInput" name="price" placeholder="Offer a price in US dollars">
+                               id="priceInput" name="sellPrice" placeholder="Offer a price in US dollars">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantityInput">Quantity</label>
+                        <input type="number" class="form-control fixed-width-input"
+                               id="quantityInput" name="quantity" placeholder="How many of this item do you have?">
                     </div>
                     <div class="form-group">
                         <label for="descriptionInput">Item Description (optional)</label>
-                        <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Briefly describe your item."></textarea>
+                        <textarea class="form-control" id="descriptionInput" name="description" rows="3" placeholder="Briefly describe your item."></textarea>
                     </div>
                 </div>
                 <div class="col-lg-6 error-div">

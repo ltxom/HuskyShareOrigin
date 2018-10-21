@@ -27,6 +27,13 @@ public class LoginTokenService {
       return null;
    }
 
+   public String searchUser(User user){
+      LoginToken loginToken = loginTokenDao.findByUser(user);
+      if (loginToken!=null)
+         return loginToken.getTokenValue();
+      return null;
+   }
+
    public boolean removeToken(Object token) {
       if (token == null)
          return false;

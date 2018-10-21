@@ -168,3 +168,5 @@ fabric.properties
 
 # mac files
 .DS_Store
+src/main/java/com/huskyshare/.DS_Store
+src/main/java/com/huskyshare/backend/.DS_Store

@@ -11,4 +11,7 @@ public interface LoginTokenDao extends JpaRepository<LoginToken, Long> {
    @Query("select l from LoginToken l where l.tokenValue = ?1")
    LoginToken findByToken(String tokenValue);
 
+   @Query("select l from LoginToken l where l.user = ?1")
+   LoginToken findByUser(User user);
+
 }

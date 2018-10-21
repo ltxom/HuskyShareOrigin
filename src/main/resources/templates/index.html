@@ -2,6 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:include="fragments/base :: head">
     <title id="pageTitle">Home | HuskyShare</title>
+    <link rel="stylesheet" herf="/static/css/common.css" ;>
+    <script src="../static/js/animate.js"></script>
+
 </head>
 <style>
     .ml-auto .dropdown-menu {
@@ -14,8 +17,8 @@
 <!-- Navigation Bar -->
 <nav th:replace="fragments/base :: navbar">Navigation Bar</nav>
 
-<main class="container-fluid">
 
+<main class="container-fluid">
     <!-- Header - set the background image for the header in the line below -->
     <header class="py-5 bg-image-full" style="background-image: url('https://unsplash.it/1900/1080?image=1076');">
         <img class="img-fluid d-block mx-auto" src="../static/img/Logos/HuskyShare.png" alt="Logo">
@@ -26,47 +29,29 @@
         <div class="container">
             <h1>HuskyShare</h1>
             <p class="lead">A New Way to Maximize Efficiency</p>
-            <p>Sharing is caring. This is a platform where you can share extra items while earning rent. Joining HuskyShare allows you to fully maximize item usage.</p>
+            <p>Sharing is caring. This is a platform where you can share extra items while earning rent. Joining
+                HuskyShare allows you to fully maximize item usage.</p>
         </div>
     </section>
 
-    <!-- Image Section - set the background image for the header in the line below -->
-    <section class="py-5 bg-image-full" style="background-image: url('https://unsplash.it/1900/1080?image=1081');">
-        <!-- Put anything you want here! There is just a spacer below for demo purposes! -->
-        <div style="height: 200px;"></div>
-    </section>
+    <!-- particles.js container -->
+    <div id="particles-js"></div>
+    <!-- stats - count particles -->
+    <div class="count-particles">
+        <span class="js-count-particles">--</span> particles
+    </div>
+
 
     <!-- Content section -->
     <section class="py-5">
         <div class="container">
             <h1>To Share is to Gain</h1>
             <p class="lead">Convenient. Instant. Efficient.</p>
-            <p>Share the things you don't need at the moment while achieving your personal needs using nearby resources.</p>
+            <p>Share the things you don't need at the moment while achieving your personal needs using nearby
+                resources.</p>
         </div>
     </section>
 </main>
 
-<script>
-    function energy() {
-        let elem = document.getElementById("energy"),
-            width = 1,
-            id = setInterval(() = > {
-                if(width >= 100
-    )
-        {
-            clearInterval(id)
-        }
-    else
-        {
-            width++;
-            elem.style.width = width + '%';
-            elem.innerHTML = width + '%';
-        }
-    },
-        10
-    )
-        ;
-    }
-</script>
 </body>
 </html>
