@@ -39,19 +39,6 @@ public class Product {
    @ManyToOne
    private Category category;
 
-   @Column(name="img_path")
-   private String imgPath;
-
-
-   public String getImgPath() {
-      return imgPath;
-   }
-
-   public void setImgPath(String imgPath) {
-      this.imgPath = imgPath;
-   }
-
-
    public String getDescription() {
       return description;
    }
