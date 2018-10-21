@@ -232,11 +232,11 @@ public class ProductController {
       List<Product> productList = productService.getAllProduct();
       List<Product> resultList = new ArrayList<>();
       for (Product product : productList) {
-         if (product.getProductName().contains(keyword) || product.getDescription().contains(keyword)) {
+         if (product.getProductName().toLowerCase().contains(keyword.toLowerCase()) || product.getDescription().toLowerCase().contains(keyword.toLowerCase())) {
             resultList.add(product);
          }
       }
-      model.addAttribute("productList", productList);
+      model.addAttribute("productList", resultList);
       return modelAndView;
    }
 

@@ -15,7 +15,7 @@
                 <div class="card-header">
                     Name
                 </div>
-                <img class="card-left" style="padding: 5px" th:src="${'../static/img/items/'+product.imgPath}"
+                <img class="card-left" style="padding: 5px" th:src="${'../static/img/productItems/'+product.imgPath}"
                      alt="item image">
                 <div class="card-body">
                     <p class="card-text" style="padding-left:1rem" th:text="'Name: '+${product.productName}">Name </p>
@@ -43,7 +43,7 @@
                 <div class="card-header">
                     Seller
                     <div class="card-body p-4">
-                        <img class="card-top" data-src="../static/img/ohuo.jpg" alt="user image">
+                        <img class="card-top" data-src="../static/img/avatars/joey-avatar.png" alt="user image">
                         <hr class="style1">
                         <p class="card-text" th:text="'Name: '+${product.seller.firstName}">Name: </p>
                     </div>
@@ -55,12 +55,6 @@
         <div class="col-sm-12 col-lg-8 ">
             <div class="card mb-4 box-shadow">
                 <div class="card-body">
-                    <p class="card-text" style="padding-left:1rem">Pickup Time: </p>
-                    <hr class="style1">
-                    <p class="card-text" style="padding-left:1rem">Pickup Location: </p>
-                    <hr class="style1">
-                    <p class="card-text" style="padding-left:1rem">Return Time: </p>
-                    <hr class="style1">
                     <button type="button" class="btn btn-danger btn-lg">Reserve</button>
                 </div>
             </div>
