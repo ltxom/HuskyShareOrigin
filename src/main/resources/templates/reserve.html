@@ -43,7 +43,7 @@
                 <div class="card-header">
                     Seller
                     <div class="card-body p-4">
-                        <img class="card-top" data-src="../static/img/avatars/joey-avatar.png" alt="user image">
+                        <img class="card-top" width="200" src="../static/img/avatars/joey-avatar.png" alt="user image">
                         <hr class="style1">
                         <p class="card-text" th:text="'Name: '+${product.seller.firstName}">Name: </p>
                     </div>
@@ -55,7 +55,25 @@
         <div class="col-sm-12 col-lg-8 ">
             <div class="card mb-4 box-shadow">
                 <div class="card-body">
-                    <button type="button" class="btn btn-danger btn-lg">Reserve</button>
+                    <button type ="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Reserve</button>
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header bg-dark">
+                                    <h4 class="modal-title text-light">HuskyShare.com</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Your reservation has been confirmed. Please expect an email from seller in a short time.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
