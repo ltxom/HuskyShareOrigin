@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <head>
     <th:block th:include="fragments/base :: head"/>
     <title id="pageTitle">Lend an Item</title>
@@ -26,7 +27,7 @@
                         <label for="categoryInput">Item Category</label>
                         <select class="form-control fixed-width-input" id="categoryInput" name="category">
                             <option selected="selected" value="-1">-- Select a Category --</option>
-                            <option th:each="cat : ${categories}" th:value="${cat.id}">[[${cat.category}]]</option>
+                            <option th:each="cat : ${categories}" th:value="${cat.category}">[[${cat.category}]]</option>
                         </select>
                     </div>
                     <div class="form-group">

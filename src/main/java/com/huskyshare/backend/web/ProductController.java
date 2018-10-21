@@ -31,7 +31,7 @@ public class ProductController {
 
    private LoginTokenService loginTokenService;
 
-   @RequestMapping(value = "/items", method = RequestMethod.GET)
+   @RequestMapping(value = "/items")
    private ModelAndView itemsForm(@RequestParam(value = "categoryID", required = false) String categoryID
            , Model model) {
       ModelAndView modelAndView = new ModelAndView("items");
@@ -94,10 +94,10 @@ public class ProductController {
    @RequestMapping(value = "/lend", method = RequestMethod.POST)
    public ModelAndView lendPost(@ModelAttribute("product") Product product,
                                 HttpServletRequest request, Model model) {
-      ModelAndView modelAndView = new ModelAndView("items");
       User user = handleLoginState(request, model);
 
       if (user == null) {
+         ModelAndView modelAndView = new ModelAndView("items");
          modelAndView.setViewName("login");
          return modelAndView;
       }
@@ -105,7 +105,7 @@ public class ProductController {
       product.setCreateTime(new Timestamp(System.currentTimeMillis()));
       product.setImgPath("weita.jpg");
       productService.saveProduct(product);
-      return modelAndView;
+      return this.itemsForm("1",model);
    }
 
    private User handleLoginState(HttpServletRequest request, Model model) {
