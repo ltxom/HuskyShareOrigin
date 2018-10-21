@@ -162,7 +162,7 @@ public class ProductController {
    @RequestMapping(value = "/demand", method = RequestMethod.POST)
    public ModelAndView demandPost(@RequestParam("file") MultipartFile file, @ModelAttribute(
            "demand") Demand demand,
-                                HttpServletRequest request, Model model) {
+                                  HttpServletRequest request, Model model) {
       User user = handleLoginState(request, model);
 
       if (user == null) {
@@ -222,6 +222,21 @@ public class ProductController {
       modelAndView.addObject("demandList", demandService.getAllDemand());
 
       modelAndView.addObject("categorys", categoryList);
+      return modelAndView;
+   }
+
+   @RequestMapping(value = "/search", method = RequestMethod.POST)
+   public ModelAndView searchPost(@RequestParam(value = "keyword", required = true) String keyword
+           , Model model) {
+      ModelAndView modelAndView = new ModelAndView("itemsBuy");
+      List<Product> productList = productService.getAllProduct();
+      List<Product> resultList = new ArrayList<>();
+      for (Product product : productList) {
+         if (product.getProductName().contains(keyword) || product.getDescription().contains(keyword)) {
+            resultList.add(product);
+         }
+      }
+      model.addAttribute("productList", productList);
       return modelAndView;
    }
 
