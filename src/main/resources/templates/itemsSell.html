@@ -46,26 +46,8 @@
                                 <div class="card-header">Details</div>
                                 <div class="card-body">
                                     <p class="card-text" th:text="${'Quantity: ' + demand.quantity}">Quantity</p>
-                                    <a th:href="'/offer?id='+${demand.id}" class="btn btn-danger btn-md" data-toggle="modal" data-target="myModal2">Offer</a>
-                                    <!--<button type ="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal2">Offer</button>-->
-                                    <div class="modal fade" id="myModal2" role="dialog">
-                                        <div class="modal-dialog">
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                <div class="modal-header bg-dark">
-                                                    <h4 class="modal-title text-light">HuskyShare.com</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>Your offer has been confirmed. Please expect an email from seller in a short time.</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
+                                    <!--<a class="btn btn-danger btn-md" data-toggle="modal" data-target="myModal2">Offer</a>-->
+                                    <button type ="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal2">Offer</button>
                                 </div>
                             </div>
                         </div>
@@ -73,6 +55,24 @@
                 </div>
             </div>
         </th:block>
+    </div>
+    <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-dark">
+                    <h4 class="modal-title text-light">HuskyShare.com</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Your offer has been confirmed. Please expect an email from seller in a short time.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
 
