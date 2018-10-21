@@ -57,10 +57,6 @@
     display: none;
 }
 
-.error-div {
-    padding-top: 4em;
-}
-
 li:not(:last-child) {
     margin-bottom: 0.7em;
 }

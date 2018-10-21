@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="fragments/base :: head"/>
+    <title id="pageTitle">Lend an Item</title>
+    <link rel="stylesheet" href="/static/css/form.css">
+    <script src="/static/js/validation.js"></script>
+    <script src="/static/js/lend.js"></script>
+</head>
+<body class="bg-default">
+<!-- Navigation Bar -->
+<nav th:replace="fragments/base :: navbar">Navigation Bar</nav>
+
+<main class="container-fluid">
+    <div class="form-container container bg-white mt-3">
+        <form action="/lend" method="post" id="lend-form">
+            <div class="row">
+                <div class="col-lg-5 mr-5">
+                    <h3 class="mb-4">Offer an Item for Lending</h3>
+                    <div class="form-group">
+                        <label for="nameInput">Item Name</label>
+                        <input type="text" class="form-control fixed-width-input"
+                               id="nameInput" name="name" placeholder="E.g. Cooking pan, camera, printer...">
+                    </div>
+                    <div class="form-group">
+                        <label for="categoryInput">Item Category</label>
+                        <select class="form-control fixed-width-input" id="categoryInput" name="category">
+                            <option selected="selected" value="-1">-- Select a Category --</option>
+                            <option th:each="cat : ${categories}" th:value="${cat.getId()}">[[${cat.getCategory()}]]</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="priceInput">Initial Price offer</label>
+                        <input type="number" class="form-control fixed-width-input"
+                               id="priceInput" name="price" placeholder="Offer a price in US dollars">
+                    </div>
+                    <div class="form-group">
+                        <label for="descriptionInput">Item Description (optional)</label>
+                        <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Briefly describe your item."></textarea>
+                    </div>
+                </div>
+                <div class="col-lg-6 error-div">
+                    <div class="remind-errors alert alert-danger" style="display: none">
+                        Please fix the following issues first.
+                    </div>
+                    <ul>
+                        <li class="name-invalid input-invalid">Please enter a name for the item.</li>
+                        <li class="category-invalid input-invalid">Please select a category.</li>
+                        <li class="price-invalid input-invalid">Please enter a valid price.</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="mt-3">
+                <small class="form-text text-muted mt-2">This item will now be visible to the public.
+                </small>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>

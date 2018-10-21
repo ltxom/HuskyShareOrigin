@@ -5,7 +5,18 @@
 Frontend: only edit files in `src/main/resources`.
 
 ### Important notes
-Add an attribute id="pageTitle" to all `title` tags in order for base.html to replace it.
+Start all page templates with the following code:
+```html
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="fragments/base :: head"/>
+    <title id="pageTitle">Page title</title>
+    <!-- other stuff to add -->
+</head>
+```
+Add the page title (without suffix " | HuskyShare" as it is added by default), and
+add other stuff such as css below \<title\>.
 
 ### Directory structure
 * `css`, `js`, `img`, etc. - static resource files.
