@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <th:block th:include="fragments/base :: head"/>
+    <title id="pageTitle">Items</title>
+</head>
+<body>
+<nav th:replace="fragments/base :: navbar">Navigation Bar</nav>
+
+<main class="container">
+    <!-- Selection Panel -->
+    <ul class="nav nav-pills">
+        <th:block th:each="category : ${categorys}">
+            <li class="nav-item">
+                <a th:class="'nav-link ' +${((category.id+'')==categoryID?'active':'')}"
+                   th:href="@{'/offers?categoryID=' + ${category.id}}" th:text="${category.category}">All</a>
+            </li>
+        </th:block>
+    </ul>
+
+    <!-- Item Panel -->
+    <div class="container-fluid">
+        <div class="row justify-content-start">
+            <th:block th:each="demand : ${demandList}">
+                <div class="col col-lg-4 col-sm-1">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card" style="width:15rem;">
+                                    <img class="card-img-top img- fluid" height="200"
+                                         th:src="${'../static/img/demandItems/'+demand.imgPath}"
+                                         alt="card image">
+                                    <div class="card-body">
+                                        <h4 class="card-title" th:text="${demand.demandName}">Name</h4>
+                                        <p class="card-text" th:text="${demand.description}">Description</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="backside">
+                                <div class="card" style="width:15rem;">
+                                    <div class="card-header">Details</div>
+                                    <div class="card-body">
+                                        <p class="card-text" th:text="${'Quantity: ' + demand.quantity}">Quantity</p>
+                                        <a th:href="'/offer?id='+${demand.id}" class="btn btn-danger btn-md">Offer</a>
+                                    </div>
+                                    <div class="card-footer"><a href="#">Vendor Info</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </div>
+</main>
+
+<script crossorigin src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script crossorigin src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</body>
+</html>

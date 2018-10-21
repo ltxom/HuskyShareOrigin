@@ -1,8 +1,10 @@
 package com.huskyshare.backend.web;
 
+import com.huskyshare.backend.entity.Demand;
 import com.huskyshare.backend.entity.Product;
 import com.huskyshare.backend.entity.User;
 import com.huskyshare.backend.dao.UserDao;
+import com.huskyshare.backend.service.DemandService;
 import com.huskyshare.backend.service.LoginTokenService;
 import com.huskyshare.backend.service.ProductService;
 import com.huskyshare.backend.service.UserService;
@@ -34,6 +36,9 @@ public class UserController {
 
    @Autowired
    private ProductService productService;
+
+   @Autowired
+   private DemandService demandService;
 
    /**
     * 访问网站的根目录
@@ -159,7 +164,15 @@ public class UserController {
             if(product.getSeller().equals(user))
                userProductList.add(product);
          }
+         List<Demand> demandList = demandService.getAllDemand();
+         List<Demand> userDemandList = new ArrayList<>();
+         for(Demand demand:demandList){
+            if(demand.getSeller().equals(user))
+               userDemandList.add(demand);
+         }
+
          modelAndView.addObject("productList", userProductList);
+         modelAndView.addObject("demandList", userDemandList);
          modelAndView.addObject("user", user);
          modelAndView.setViewName("profile");
          return modelAndView;
