@@ -2,7 +2,8 @@
 
 #particles-js {
     position: absolute;
-    height: 250px;
+    width: 100%;
+    height: 100px;
     background-size: cover;
     background: grey no-repeat 50% 50%;
 }
@@ -10,7 +11,7 @@
 /* ---- stats.js ---- */
 
 .count-particles{
-    background: #000022;
+    background: red;
     position: absolute;
     top: 48px;
     left: 0;
